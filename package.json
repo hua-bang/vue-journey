@@ -1,0 +1,34 @@
+{
+  "name": "vue-journey",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hua-bang/vue-journey.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hua-bang/vue-journey/issues"
+  },
+  "homepage": "https://github.com/hua-bang/vue-journey#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.16.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-html": "^6.2.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "eslint-plugin-vue": "^8.5.0",
+    "typescript": "^4.6.3",
+    "vite": "^2.8.6"
+  }
+}

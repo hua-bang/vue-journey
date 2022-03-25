@@ -1,0 +1,26 @@
+{
+  "eslint.alwaysShowStatus": true,
+  "editor.formatOnType": true,
+  "editor.formatOnSave": true,
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+  },
+  "eslint.validate": [
+    "javascript",
+    "typescript",
+    "html",
+    "vue"
+  ],
+  "prettier.printWidth": 120,
+  "cSpell.words": [
+    "Charlex",
+    "uniapp",
+    "vite"
+  ],
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "prettier.requireConfig": true
+}
