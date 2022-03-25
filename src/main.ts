@@ -1,1 +1,3 @@
-console.log('hello, vue journey');
+import { reactivity } from '../packages/index';
+
+console.log(reactivity);
