@@ -1,3 +1,9 @@
-import { reactivity } from '../packages/index';
+import { reactive, effect } from '../packages/reactivity/src/index';
 
-console.log(reactivity);
+const a = reactive({ name: 'hug', age: 18, hobbies: [ { text: '测试' } ] });
+
+(window as any).a = a;
+
+effect(() => {
+  document.body.innerText = a.hobbies.map(item => item.text).join(',');
+});
