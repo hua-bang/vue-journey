@@ -1,9 +1,14 @@
-import { reactive, effect } from '../packages/reactivity/src/index';
+import { reactive, effect } from '../packages/index';
 
-const a = reactive({ name: 'hug', age: 18, hobbies: [ { text: '测试' } ] });
+const a = reactive({
+  name: 'hug',
+  age: 18,
+  display: true
+});
 
 (window as any).a = a;
 
 effect(() => {
-  document.body.innerText = a.hobbies.map(item => item.text).join(',');
+  console.log('loader');
+  document.body.innerText = a.display ? (a.name + a.age) : 'no data';
 });
