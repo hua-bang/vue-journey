@@ -1,1 +1,1 @@
-export { default as reactivity } from './reactivity/src/index';
+export { reactive, effect } from './reactivity/src/index';
