@@ -1,14 +1,12 @@
-import { reactive, effect } from '../packages/index';
+import { reactive, computed, effect } from '../packages/index';
 
-const a = reactive({
-  name: 'hug',
-  age: 18,
-  display: true
-});
+const obj = reactive({ a: 1, b: 2 });
 
+const a = computed(() => obj.a + obj.b);
+
+(window as any).obj = obj;
 (window as any).a = a;
 
-effect(() => {
-  console.log('loader');
-  document.body.innerText = a.display ? (a.name + a.age) : 'no data';
-});
+// effect(() => {
+//   console.log(a.value);
+// });
