@@ -1,11 +1,14 @@
-import { reactive, computed, effect } from '../packages/index';
+import { tokenize } from '../packages/index';
 
-const obj = reactive({ a: 1, b: 2 });
+const templateStr = '<p>Vue</p>';
+console.log(tokenize(templateStr));
 
-const a = computed(() => obj.a + obj.b);
+// const obj = reactive({ a: 1, b: 2 });
 
-(window as any).obj = obj;
-(window as any).a = a;
+// const a = computed(() => obj.a + obj.b);
+
+// (window as any).obj = obj;
+// (window as any).a = a;
 
 // effect(() => {
 //   console.log(a.value);
