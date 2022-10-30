@@ -1,17 +1,57 @@
-type TemplateAst = any;
+interface TemplateAstNode<T extends string = string> { 
+  type: T,
+  children?: TemplateAstNode[];
+  [key: string]: any;
+}
+
 interface Token {
   type: string;
   content?: string;
   name?: string; 
 }
 
-export const parse = (template: string): TemplateAst => { 
-  
+export const parse = (template: string): TemplateAstNode<'root'> => { 
+
   // 1. tokenize
+  const tokens = tokenize(template);
 
   // 2. generate ast
+  const root: TemplateAstNode<'root'> = {
+    type: 'root',
+    children: [],
+  };
+
+  const elementStack: TemplateAstNode[] = [root];
+
+  while (tokens.length) { 
+    const parent = elementStack[elementStack.length - 1];
+    const token = tokens[0];
+    switch (token.type) { 
+    case 'tag':
+      const elementNode: TemplateAstNode = {
+        type: 'Element',
+        tag: token.name,
+        children: []
+      };
+      parent.children?.push(elementNode);
+      elementStack.push(elementNode);
+      break;
+    case 'text':
+      const textNode = {
+        type: 'Text',
+        content: []
+      };
+      parent.children?.push(textNode);
+      break;
+    
+    case 'tagEnd':
+      elementStack.pop();
+      break;
+    } 
+    tokens.shift();
+  }
   
-  return template;
+  return root;
 };
 
 enum State { 

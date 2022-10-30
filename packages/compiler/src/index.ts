@@ -1,2 +1,2 @@
-export { tokenize } from './parse';
+export { parse, tokenize } from './parse';
 
