@@ -1,4 +1,4 @@
-interface TemplateAstNode<T extends string = string> { 
+export interface TemplateAstNode<T extends string = string> { 
   type: T,
   children?: TemplateAstNode[];
   [key: string]: any;
