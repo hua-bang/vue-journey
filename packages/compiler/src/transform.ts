@@ -2,8 +2,9 @@ import { TemplateAstNode } from './parse';
 import { traverseNode } from './traverse';
 // Template AST -> JS AST
 
-interface JSAstNode { 
+export interface JSAstNode { 
   type: string;
+  body?: JSAstNode[];
   [key: string]: any;
 }
 
