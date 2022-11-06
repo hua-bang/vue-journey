@@ -1,6 +1,7 @@
 export interface TemplateAstNode<T extends string = string> { 
   type: T,
   children?: TemplateAstNode[];
+  jsNode?: any;
   [key: string]: any;
 }
 
@@ -10,14 +11,14 @@ interface Token {
   name?: string; 
 }
 
-export const parse = (template: string): TemplateAstNode<'root'> => { 
+export const parse = (template: string): TemplateAstNode<'Root'> => { 
 
   // 1. tokenize
   const tokens = tokenize(template);
 
   // 2. generate ast
-  const root: TemplateAstNode<'root'> = {
-    type: 'root',
+  const root: TemplateAstNode<'Root'> = {
+    type: 'Root',
     children: [],
   };
 
@@ -39,7 +40,7 @@ export const parse = (template: string): TemplateAstNode<'root'> => {
     case 'text':
       const textNode = {
         type: 'Text',
-        content: []
+        content: token.content
       };
       parent.children?.push(textNode);
       break;

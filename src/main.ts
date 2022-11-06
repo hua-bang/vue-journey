@@ -1,34 +1,14 @@
-import { parse, tokenize, traverseNode } from '../packages/index';
+import { parse, tokenize, transform } from '../packages/index';
 
 const templateStr = '<div><p>Vue</p><p>Template</p></div>';
 
 const ast = parse(templateStr);
 
-const transformAFn = ast => { 
-  console.log(`${ast.type}, transform A Begin`);
-  return () => { 
-    console.log(`${ast.type}, transform A End`);
-  };
-};
+// console.log(ast);
 
-const transformBFn = (ast) => { 
-  console.log(`${ast.type}, transform B Begin`);
-  return () => { 
-    console.log(`${ast.type}, transform B End`);
-  };
-};
+transform(ast);
 
-const context = {
-  currentNode: ast,
-  childrenIndex: 0,
-  parent: null,
-  nodeTransforms: [
-    transformAFn,
-    transformBFn
-  ]
-};
-
-traverseNode(ast, context);
+console.log(ast.jsNode);
 
 
 
